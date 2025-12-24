@@ -84,6 +84,15 @@ async function fetchAdvice() {
     }
 }
 
+// Prevent scrolling on mobile
+document.addEventListener('touchmove', function(e) {
+    // Allow touch events on interactive elements
+    if (e.target.closest('.dice-button')) {
+        return;
+    }
+    e.preventDefault();
+}, { passive: false });
+
 // Fetch advice on page load
 fetchAdvice();
 
