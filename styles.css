@@ -131,21 +131,32 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(82, 255, 168, 0.3);
+    box-shadow: none;
 }
 
-.dice-button:hover {
-    box-shadow: 0 0 30px rgba(82, 255, 168, 0.6);
+.dice-button:hover:not(:disabled) {
+    box-shadow: 0 0 20px rgba(82, 255, 168, 0.4);
     transform: translateX(-50%) scale(1.05);
 }
 
-.dice-button:active {
+.dice-button:active:not(:disabled) {
     transform: translateX(-50%) scale(0.95);
 }
 
 .dice-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    box-shadow: 0 0 30px rgba(82, 255, 168, 0.6);
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(82, 255, 168, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(82, 255, 168, 0.8);
+    }
 }
 
 .dice-icon {
