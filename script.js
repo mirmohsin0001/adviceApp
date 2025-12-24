@@ -64,7 +64,34 @@ setViewportHeight();
 
 // Update on resize and orientation change
 window.addEventListener('resize', setViewportHeight);
-window.addEventListener('orientationchange', setViewportHeight);
+window.addEventListener('orientationchange', () => {
+    setTimeout(setViewportHeight, 100);
+});
+
+// Prevent touch scrolling (but allow button clicks)
+let touchStartY = 0;
+
+document.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+    // Prevent multi-touch gestures
+    if (e.touches.length > 1) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+document.addEventListener('touchmove', function(e) {
+    // Allow touch events on interactive elements
+    if (e.target.closest('button') || e.target.closest('a')) {
+        return;
+    }
+    // Prevent pull-to-refresh at the top
+    if (touchStartY < 10 && e.touches[0].clientY > touchStartY) {
+        e.preventDefault();
+        return;
+    }
+    // Prevent all other scrolling
+    e.preventDefault();
+}, { passive: false });
 
 async function fetchAdvice() {
     try {
