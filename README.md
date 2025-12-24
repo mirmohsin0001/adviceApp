@@ -113,7 +113,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## Author
 
-Created with ❤️ by [Your Name]
+Created with ❤️ by Mohsin Ayoub Mir
 
 ---
 
