@@ -15,12 +15,12 @@ body {
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: #1f2632;
     min-height: 100vh;
-    max-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+    min-height: calc(var(--vh, 1vh) * 100); /* Fallback using JS-calculated height */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    touch-action: none;
 }
 
 .container {
