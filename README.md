@@ -2,6 +2,8 @@
 
 A beautiful, interactive web application that fetches random advice from the [Advice Slip API](https://api.adviceslip.com/) and displays it with an engaging dice animation.
 
+Live Demo: https://mirmohsin0001.github.io/adviceApp/
+
 ## Features
 
 - 🎲 **Interactive Dice Animation**: Click the dice button to shuffle through different dice faces while loading new advice
